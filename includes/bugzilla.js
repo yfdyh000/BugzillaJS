@@ -57,8 +57,8 @@ function addPrefs() {
         'text': 'BugzillaJS Preferences'});
     $li.append($a);
 
-    if (is_mozilla_theme) {
-        $appendTo = $('#moz_login .dropdown li:eq(1)');
+    if (is_mozilla_theme) { // e.g. not logged in
+        $appendTo = $('#moz_login .dropdown li:eq(1)'); // seem broken
         $appendTo.after($li);
     } else {
         $appendTo = $('#header > .links, #links-actions .links');
@@ -175,10 +175,11 @@ function registerPref_old(slug,
         settings[slug] = setting_default;
 
         let slugname = 'settings_' + slug;
-        chrome.storage.local.get([slugname], function(v) {
+        chrome.storage.local.get([slugname], function(v) { // does not works in Edge
             //console.log(slugname, v)
             var show_new = false;
-            if (typeof v != 'undefined') {
+            //console.log($.isEmptyObject(v))
+            if (!$.isEmptyObject(v)) {
                 settings[slug] = v[slugname];
             } else {
                 if (is_new) {
