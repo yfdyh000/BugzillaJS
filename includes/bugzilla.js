@@ -129,8 +129,8 @@ function openPrefs(e) {
     $save.appendTo($prefs_f);
     $save.click(function() {
         $('input', $prefs_h).each(function() {
-            _.storage.save('settings_' + $(this).attr('data-slug'),
-                $(this).is(':checked'));
+            let slugname = 'settings_' + $(this).attr('data-slug');
+            chrome.storage.local.set({[slugname]: $(this).is(':checked')});
         });
 
         window.location.reload();
@@ -174,10 +174,12 @@ function registerPref_old(slug,
 
         settings[slug] = setting_default;
 
-        _.storage.request('settings_' + slug, function(v) {
+        let slugname = 'settings_' + slug;
+        chrome.storage.local.get([slugname], function(v) {
+            //console.log(slugname, v)
             var show_new = false;
             if (typeof v != 'undefined') {
-                settings[slug] = v;
+                settings[slug] = v[slugname];
             } else {
                 if (is_new) {
                     total_new++;

@@ -2,23 +2,6 @@
 
 https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/
 
-# DEVELOPING THE ADD-ON (OSX Only!)
-
-BugzillaJS requires Omnium (cross-browser pagemods), and can be installed
-like this:
-
-    git clone git@github.com:gkoberger/omnium.git --recursive
-    cd omnium
-    npm install
-
-    git clone git@github.com:gkoberger/BugzillaJS.git bugzillajs
-    ./builder.js bugzillajs
-
-This should open up an install button in Firefox.
-
-Omnium is just a wrapper that I use to generate XPI files.  It takes care of
-figuring out all the page-mod logic.
-
 # TESTING THE ADD-ON
 
 Once you have it installed, check out the following URL to see it in action:

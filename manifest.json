@@ -1,0 +1,54 @@
+{
+
+  "manifest_version": 2,
+  "name": "BugzillaJS",
+  "version": "4.0.0a1",
+
+  "description": "Add features to Bugzilla.",
+  "homepage_url": "https://github.com/gkoberger/BugzillaJS",
+
+  "icons": {
+    "64": "icons/icon-64.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "BugzillaJS@mozilla.org",
+      "strict_min_version": "48.0"
+    }
+  },
+
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://bugzilla.mozilla.org/*", "*://landfill.bugzilla.org/*"],
+      "css": [
+        "includes/style.css",
+        "includes/bugzilla-agile.css"
+      ],
+      "js": [
+        "includes/jquery.js",
+        "includes/jquery.scrollTo.js",
+        "includes/jquery.flot.js",
+        "includes/jquery.flot.pie.js",
+        "includes/md5.js",
+        "includes/bugzilla-defs.js",
+        "includes/bugzilla.js",
+        "includes/bugzilla-date.js",
+        "includes/bugzilla-images.js",
+        "includes/bugzilla-listingpage.js",
+        "includes/bugzilla-git.js",
+        "includes/bugzilla-gravatars.js",
+        "includes/bugzilla-comments.js",
+        "includes/bugzilla-misc.js",
+        "includes/bugzilla-agile.js",
+        "includes/bugzilla-keyboard.js",
+        "includes/bugzilla-treeherder.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+
+}

@@ -207,7 +207,7 @@ function savedSearchDropDown() {
         list.appendChild(saved[i]);
     }
     dropdown.appendChild(list);
-    var topbar = document.querySelector('#header .wrapper > .links');
+    var topbar = window.document.querySelector('#header .wrapper > .links');
     topbar.appendChild(dropdown);
-    document.querySelector('#links-saved').remove();
+    //document.querySelector('#links-saved').remove();
 }

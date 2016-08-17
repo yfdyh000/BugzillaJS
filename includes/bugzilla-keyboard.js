@@ -21,7 +21,7 @@ $(window).keypress(function(e) {
         msg += 'Do you want to enable them?';
         var enable = confirm(msg);
         if (enable) {
-            _.storage.save('settings_keyboard', true);
+            chrome.storage.local.set({'settings_keyboard': true});
             settings.keyboard = true;
             initKB();
             $('#shortcuts').show();
@@ -70,7 +70,7 @@ function initKB() {
 
         if (typeof callback == 'string') {
             var url = callback;
-            callback = function() { unsafeWindow.location = url; };
+            callback = function() { window.location = url; };
         }
 
         kbCallback[keycode] = function() {
@@ -105,7 +105,7 @@ function initKB() {
     });
 
     var last_g = '';
-    $(unsafeWindow).keypress(function(e) {
+    $(window).keypress(function(e) {
         if ($(e.target).is('input, textarea, select') ||
                 e.ctrlKey ||
                 e.metaKey ||
@@ -222,7 +222,7 @@ function initKB() {
     addShortcut('gb', 'Go to bug #___', function() {
         var bug = prompt('What is the bug number?');
         if (bug) {
-            unsafeWindow.location = './show_bug.cgi?id=' + bug;
+            window.location = './show_bug.cgi?id=' + bug;
         }
     });
 
