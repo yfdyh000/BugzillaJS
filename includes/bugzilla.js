@@ -3,6 +3,14 @@
 
 /* global $, _, categories */
 
+if (typeof msBrowser !== 'undefined') {
+  var chrome = msBrowser;
+}
+else if (typeof browser != 'undefined')
+{
+  var chrome = browser;
+}
+
 var settings = [],
     settings_fields = [],
     bug_id = false,

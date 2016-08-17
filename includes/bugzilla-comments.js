@@ -21,7 +21,7 @@ function initHighlightRA() {
     var assignee = document.querySelector(selector).textContent;
 
     var reporter = false;
-    for (var field of document.querySelectorAll('.field_label')) {
+    for (var field of document.querySelectorAll('.field_label')) { // not work for Edge
         if (field.textContent.includes('Reported')) {
             reporter = field.nextElementSibling.querySelector('.vcard .fn').
                 textContent;

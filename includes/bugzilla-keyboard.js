@@ -2,6 +2,14 @@
 
 /* global registerPref, $, _, settings, unsafeWindow, openPrefs */
 
+if (typeof msBrowser !== 'undefined') {
+  chrome = msBrowser;
+}
+else if (typeof browser != 'undefined')
+{
+  chrome = browser;
+}
+
 registerPref('keyboard', {'title': 'Enable keyboard shortcuts',
                           'setting_default': false,
                           'callback': initKB,

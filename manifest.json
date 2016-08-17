@@ -2,6 +2,7 @@
 
   "manifest_version": 2,
   "name": "BugzillaJS",
+  "author": "Gregory Koberger",
   "version": "4.0.0",
 
   "description": "Add features to Bugzilla.",
